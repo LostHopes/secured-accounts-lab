@@ -5,9 +5,15 @@ description = "Secure account and auth"
 authors = ["losthope <arsen.melnuchyk@gmail.com>"]
 license = "MIT"
 readme = "README.md"
+package-mode = false
 
 [tool.poetry.dependencies]
 python = "^3.12"
+flask-wtf = "^1.2.2"
+flask-sqlalchemy = "^3.1.1"
+flask-migrate = "^4.0.7"
+flask-login = "^0.6.3"
+python-dotenv = "^1.0.1"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.3.3"
