@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div>
+    <h1>{{ error }}</h1>
+    <form action="{{ url_for('index') }}" method="get">
+        <input type="submit" value="Return to the home page" >
+    </form>
+</div>
+{% endblock %}
