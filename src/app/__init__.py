@@ -11,6 +11,8 @@ def create_app(config_obj: object=config.DevConfig):
     with app.app_context():
         app.config.from_object(config_obj)
         from app import views
+        from app.models import User
         db.init_app(app)
+        db.create_all(bind_key=None)
 
     return app
