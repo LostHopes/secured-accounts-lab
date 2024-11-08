@@ -1,2 +1,12 @@
 {% extends "base.html" %}
+{% import "_fields.html" as fields %}
 
+{% block css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+{% endblock %}
+
+{% block content %}
+    <form method="post">
+        {{ fields.login_form(form) }}
+    </form>
+{% endblock %}

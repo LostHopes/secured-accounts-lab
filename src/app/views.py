@@ -1,11 +1,8 @@
-from flask import render_template
+from flask import render_template, redirect, url_for, flash
 from flask_login import login_required
-from app import app, login_manager
+from app import app
 from app.models import User
-
-@login_manager.user_loader
-def load_user(user_id):
-    return User.query.filter_by(id=user_id).first()
+from app.forms import LoginForm, RegisterForm
 
 
 @app.get("/")
@@ -17,13 +14,23 @@ def index():
 @app.get("/login")
 def login():
     title: str = "Login"
-    return render_template("login.html", title=title)
+
+    form = LoginForm()
+    if form.validate_on_submit():
+        return redirect(url_for("profile"))
+
+    return render_template("login.html", title=title, form=form)
 
 
 @app.get("/register")
 def register():
     title: str = "Register"
-    return render_template("register.html", title=title)
+
+    form = RegisterForm()
+    if form.validate_on_submit():
+        return redirect(url_for("login"))
+
+    return render_template("register.html", title=title, form=form)
 
 
 @app.get("/profile")

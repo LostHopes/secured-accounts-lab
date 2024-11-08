@@ -62,4 +62,5 @@ sudo docker run -p 5000:5000 secure-accounts
 
 # References and additional information
 
-1. [Docker official documentation](https://docs.docker.com)
+1. [Docker official documentation - Docker](https://docs.docker.com)
+2. [Bcrypt - Wiki](https://en.wikipedia.org/wiki/Bcrypt)
