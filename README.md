@@ -7,6 +7,14 @@ listed in the pyproject.toml file.
 
 Algorithm used for hashing - bcrypt.
 
+Requirements for the password:
+- [x] length >= 8 symbols
+- [ ] lower and upper case letters
+- [ ] must contain at least one number
+- [ ] must containt at least one symbol
+- [ ] if users doesn't exist in the database, send a info flash and redirect him/her to the register page
+- [ ] compare hashes, not passwords
+
 # Installation
 
 The app can be launched manually and through docker container.
