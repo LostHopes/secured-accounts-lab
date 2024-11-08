@@ -3,6 +3,10 @@ Every task contains a separate branch and screenshots of completed task.
 For this purpose I'm gonna use Flask framework, which requoires python to be installed with a few libraries
 listed in the pyproject.toml file.
 
+# Task 1
+
+Algorithm used for hashing - bcrypt.
+
 # Installation
 
 The app can be launched manually and through docker container.
@@ -55,4 +59,5 @@ sudo docker run -p 5000:5000 secure-accounts
 
 # References and additional information
 
-1. [Docker official documentation](https://docs.docker.com)
+1. [Docker official documentation - Docker](https://docs.docker.com)
+2. [Bcrypt - Wiki](https://en.wikipedia.org/wiki/Bcrypt)
