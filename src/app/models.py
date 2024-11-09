@@ -1,3 +1,4 @@
+from flask_login import UserMixin
 from app import db, login_manager
 
 
@@ -6,7 +7,7 @@ def load_user(user_id):
     return User.query.filter_by(id=user_id).first()
 
 
-class User(db.Model):
+class User(db.Model, UserMixin):
     __tablename__ = 'users'
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String, unique=True)

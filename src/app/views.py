@@ -39,3 +39,13 @@ def profile():
     title: str = "Profile"
     return render_template("profile.html", title=title)
 
+
+@app.post("/login")
+def process_login():
+    return redirect(url_for("profile"))
+
+
+@app.post("/register")
+def process_register():
+    return redirect(url_for("profile"))
+
