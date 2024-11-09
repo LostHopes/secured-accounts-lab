@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, EmailField, PasswordField, SelectField, BooleanField
-from wtforms.validators import DataRequired, Length
+from wtforms.validators import DataRequired, Length, Regexp
 
 
 class LoginForm(FlaskForm):
@@ -17,9 +17,17 @@ class RegisterForm(FlaskForm):
         render_kw={'placeholder': "Enter your username"})
     email = EmailField("Email", validators=[DataRequired(), Length(min=8, max=256)],
         render_kw={"placeholder": "Enter your email address"})
-    password = PasswordField("Password", validators=[DataRequired(), Length(min=8, max=50)],
+    password = PasswordField("Password", validators=[
+            DataRequired(),
+            Length(min=8, max=50),
+            Regexp("^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$")
+        ],
         render_kw={"placeholder": "Enter your password"})
-    confirm_password = PasswordField("Confirm password", validators=[DataRequired(), Length(min=8, max=50)],
+    confirm_password = PasswordField("Confirm password", validators=[
+            DataRequired(),
+            Length(min=8, max=50),
+            Regexp("^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$")
+        ],
         render_kw={"placeholder": "Confirm your password"})
     terms = BooleanField("Accept Terms", validators=[DataRequired()])
     submit = SubmitField("Register")
