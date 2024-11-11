@@ -72,3 +72,5 @@ sudo docker run -p 5000:5000 secure-accounts
 
 1. [Docker official documentation - Docker](https://docs.docker.com)
 2. [Bcrypt - Wiki](https://en.wikipedia.org/wiki/Bcrypt)
+3. [Colors for the app](https://coolors.co/palette/f94144-f3722c-f8961e-f9c74f-90be6d-43aa8b-577590)
+4. [WTForms official docs](https://wtforms.readthedocs.io/en/)
