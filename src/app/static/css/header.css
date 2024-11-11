@@ -1,0 +1,22 @@
+@import "./colors.css";
+
+.header-block{
+    display: flex;
+    justify-content: center;
+    flex-flow: row wrap;
+}
+
+.header-block a {
+    margin-left: 3vh;
+    margin-right: 3vh;
+    margin-top: 3vh;
+    font-size: x-large;
+    text-decoration: none;
+    color: var(--ocean);
+
+    &:hover{
+        text-underline-offset: 10px;
+        text-decoration: underline;
+        color: var(--red);
+    }
+}

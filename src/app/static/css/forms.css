@@ -1,0 +1,51 @@
+@import "./colors.css";
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  min-height: 90vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.auth-form div {
+  padding: 1vh;
+}
+
+.auth-form .data-field {
+  display: flex;
+
+  padding-top: 1.5vh;
+  padding-bottom: 1.5vh;
+  padding-left: 8vh;
+  padding-right: 8vh;
+
+  border-radius: 1vh;
+}
+
+#submit {
+  padding-top: 0.8vh;
+  padding-bottom: 0.8vh;
+  padding-left: 3vh;
+  padding-right: 3vh;
+
+  border-width: 0.2vh;
+  border-radius: 0.5vh;
+  font-size: large;
+  font-weight: bold;
+  background-color: var(--light-brown);
+  color: black;
+
+  &:hover{
+    background-color: var(--red);
+    color: white;
+  }
+}
+
+.form-label,
+.data-field::placeholder,
+.data-field
+{
+  font-size: large;
+  font-weight: bold;
+}
