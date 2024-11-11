@@ -12,8 +12,8 @@ Requirements for the password:
 - [x] lower and upper case letters
 - [x] must contain at least one number
 - [x] must containt at least one symbol
-- [ ] if users doesn't exist in the database, send a info flash and redirect him/her to the register page
-- [ ] compare hashes, not passwords
+- [x] if users doesn't exist in the database, send a info flash and redirect him/her to the register page
+- [x] compare hashes, not passwords
 
 # Installation
 
