@@ -2,11 +2,14 @@
 {% import "_fields.html" as fields %}
 
 {% block css %}
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/forms.css') }}">
 {% endblock %}
 
 {% block content %}
-    <form method="post">
+    <div>
+        {% include "_flashes.html"%}
+    </div>
+    <form method="post" action="{{ url_for('process_login') }}" class="auth-form">
         {{ fields.login_form(form) }}
     </form>
 {% endblock %}

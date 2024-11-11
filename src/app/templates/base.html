@@ -5,6 +5,7 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Auth | {{ title }}</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename="images/favicon.ico") }}">
     {% block css %}
 
     {% endblock %}
@@ -16,12 +17,16 @@
 </head>
 <body>
 
-    {% include "header.html" %}
+    <header>
+        {% include "header.html" %}
+    </header>
 
     {% block content %}
 
     {% endblock %}
 
-    {% include "footer.html" %}
+    <footer>
+        {% include "footer.html" %}
+    </footer>
 </body>
 </html>
