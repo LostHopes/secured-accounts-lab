@@ -2,6 +2,8 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='css/header.css') }}">
 {% endblock %}
 
-<header>
-    
-</header>
+<div class="header-block">
+    <a href="{{ url_for('index') }}">Home</a>
+    <a href="{{ url_for('register') }}">Register</a>
+    <a href="{{ url_for('login') }}">Login</a>
+</div>
