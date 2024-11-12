@@ -1,0 +1,39 @@
+@import "./colors.css";
+
+
+.flashes {
+    text-align: center;
+}
+
+.flashes li{
+    list-style: none;
+    font-size: x-large;
+}
+
+.error-msg{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    min-height: 80vh;
+}
+
+.error-msg h1{
+    text-wrap: pretty;
+}
+
+.return-home-btn{
+    font-size: large;
+    border-radius: 0.5vh;
+
+    padding: 1vh;
+    
+    color: black;
+    background-color: var(--light-brown);
+    font-weight: bolder;
+
+    &:hover{
+        background-color: var(--red);
+        color: white;
+    }
+}
