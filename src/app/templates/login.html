@@ -2,6 +2,7 @@
 {% import "_fields.html" as fields %}
 
 {% block css %}
+    {{ super() }}
     <link rel="stylesheet" href="{{ url_for('static', filename='css/forms.css') }}">
 {% endblock %}
 

@@ -59,7 +59,7 @@ def process_login():
     remember = form.remember.data
 
     login_user(user, remember)
-
+    flash("Login successful", "success")
     return redirect(url_for("profile"))
 
 
