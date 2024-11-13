@@ -8,10 +8,12 @@
 
 {% block content %}
 
-    {% include "_flashes.html"%}
+    <div class="logout-block">
+        {% include "_flashes.html"%}
 
-    <form action="{{ url_for('logout') }}" method="post" class="logout-form">
-        <input type="submit" value="Logout">
-    </form>
+        <form action="{{ url_for('logout') }}" method="post">
+            <input type="submit" value="Logout">
+        </form>
+    </div>
 
 {% endblock %}

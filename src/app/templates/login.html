@@ -7,10 +7,10 @@
 {% endblock %}
 
 {% block content %}
-    <div>
+    <div class="auth-block">
         {% include "_flashes.html"%}
+        <form method="post" action="{{ url_for('process_login') }}">
+            {{ fields.login_form(form) }}
+        </form>
     </div>
-    <form method="post" action="{{ url_for('process_login') }}" class="auth-form">
-        {{ fields.login_form(form) }}
-    </form>
 {% endblock %}
