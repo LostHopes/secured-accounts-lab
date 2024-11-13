@@ -9,6 +9,7 @@
     padding: 15px;
     font-size: large;
     font-weight: bold;
+    border-radius: 0.5vh;
 
     background-color: var(--light-brown);
 
