@@ -13,7 +13,7 @@ def index():
     return render_template("index.html", title=title)
 
 
-@app.get("/login")
+@app.get("/login/")
 def login():
     title: str = "Login"
 
@@ -24,7 +24,7 @@ def login():
     return render_template("login.html", title=title, form=form)
 
 
-@app.get("/register")
+@app.get("/register/")
 def register():
     title: str = "Register"
 
@@ -36,14 +36,14 @@ def register():
     return render_template("register.html", title=title, form=form)
 
 
-@app.get("/profile")
+@app.get("/profile/")
 @login_required
 def profile():
     title: str = "Profile"
     return render_template("profile.html", title=title)
+    
 
-
-@app.post("/login")
+@app.post("/login/")
 def process_login():
     form = LoginForm(request.form)
 
@@ -53,7 +53,7 @@ def process_login():
     user = db.session.query(User).filter_by(email=email).first()
 
     if form.validate() and check_password_hash(user.password, password) is False:
-        flash("Invalid password or the user didn't exist")
+        flash("Invalid password or the user didn't exist", "info")
         return redirect(url_for("login"))
 
     remember = form.remember.data
@@ -63,7 +63,7 @@ def process_login():
     return redirect(url_for("profile"))
 
 
-@app.post("/register")
+@app.post("/register/")
 def process_register():
 
     try:
@@ -90,7 +90,7 @@ def process_register():
         db.session.commit()
 
     except IntegrityError:
-        flash("User already exists", "info")
+        flash("User already exists", "error")
         db.session.rollback()
         return redirect(url_for("register"))
         
@@ -98,3 +98,10 @@ def process_register():
     flash("User has been successfully registered")
     return redirect(url_for("login"))
     
+
+@app.post("/logout/")
+@login_required
+def logout():
+    logout_user()
+    flash("You have been logged out", "info")
+    return redirect(url_for("index"))
