@@ -3,3 +3,11 @@
 {% block css %}
     {{ super() }}
 {% endblock %}
+
+{% block content %}
+
+<div>
+    {% include "_flashes.html" %}
+</div>
+
+{% endblock %}

@@ -1,4 +1,4 @@
-.auth-form {
+.auth-block {
   display: flex;
   flex-direction: column;
   min-height: 90vh;
@@ -6,11 +6,11 @@
   align-items: center;
 }
 
-.auth-form div {
+.auth-block div {
   padding: 1vh;
 }
 
-.auth-form .data-field {
+.auth-block .data-field {
   display: flex;
 
   padding-top: 1.5vh;

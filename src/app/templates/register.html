@@ -2,14 +2,17 @@
 {% import "_fields.html" as fields %}
 
 {% block css %}
-    {{ super() }}
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/forms.css') }}">
+{{ super() }}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/forms.css') }}">
 {% endblock %}
 
 {% block content %}
-    {% include "_flashes.html"%}
-    <form method="post" action="{{ url_for('process_register') }}" class="auth-form">
-        {{ fields.register_form(form) }}
-    </form>
+
+    <div class="auth-block">
+        {% include "_flashes.html"%}
+        <form method="post" action="{{ url_for('process_register') }}">
+            {{ fields.register_form(form) }}
+        </form>
+    </div>
 
 {% endblock %}

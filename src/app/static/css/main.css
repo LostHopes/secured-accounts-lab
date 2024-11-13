@@ -4,9 +4,10 @@
 .flashes {
     text-align: center;
     background-color: var(--light-green);
+    margin: 5vh;
 }
 
-.flashes li{
+.flashes div{
     list-style: none;
     font-size: x-large;
 }
