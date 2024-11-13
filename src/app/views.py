@@ -54,13 +54,13 @@ def process_login():
     user = db.session.query(User).filter_by(email=email).first()
 
     if form.validate() and check_password_hash(user.password, password) is False:
-        flash("Invalid password or the user didn't exist", "info")
+        flash("Invalid password or the user didn't exist", "flash-info")
         return redirect(url_for("login"))
 
     remember = form.remember.data
 
     login_user(user, remember)
-    flash("Login successful", "success")
+    flash("Logged in successfully", "flash-success")
     return redirect(url_for("profile"))
 
 
@@ -79,17 +79,17 @@ def process_register():
         captcha_text = request.form.get("captcha-text")
 
         if captcha.verify(captcha_text, captcha_hash) is False:
-            flash("Couldn't verify the captcha", "error")
+            flash("Couldn't verify the captcha", "flash-error")
             return redirect(url_for("register"))
 
         if form.validate() is False:
-            flash("Failed to validate data", "error")
+            flash("Failed to validate data", "flash-error")
             return redirect(url_for("register"))
 
 
         password_hash = generate_password_hash(password)
         if check_password_hash(password_hash, confirm_password) is False:
-            flash("Passwords aren't the same", "info")
+            flash("Passwords aren't the same", "flash-info")
             return redirect(url_for("register"))
 
         user = User(username=username, email=email, password=password_hash)
@@ -98,12 +98,12 @@ def process_register():
         db.session.commit()
 
     except IntegrityError:
-        flash("User already exists", "error")
+        flash("User already exists", "flash-error")
         db.session.rollback()
         return redirect(url_for("register"))
         
 
-    flash("User has been successfully registered")
+    flash("User has been successfully registered", "flash-success")
     return redirect(url_for("login"))
     
 
@@ -111,5 +111,5 @@ def process_register():
 @login_required
 def logout():
     logout_user()
-    flash("You have been logged out", "info")
+    flash("You have been logged out", "flash-info")
     return redirect(url_for("index"))

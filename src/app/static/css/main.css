@@ -3,13 +3,24 @@
 
 .flashes {
     text-align: center;
-    background-color: var(--light-green);
     margin: 5vh;
 }
 
 .flashes div{
     list-style: none;
     font-size: x-large;
+}
+
+.flash-success{
+    background-color: var(--light-green);
+}
+
+.flash-error{
+    background-color: var(--red);
+}
+
+.flash-info{
+    background-color: var(--ocean);
 }
 
 .error-msg{
