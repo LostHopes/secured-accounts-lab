@@ -3,6 +3,7 @@
 
 .flashes {
     text-align: center;
+    background-color: var(--light-green);
 }
 
 .flashes li{
