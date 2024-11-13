@@ -3,6 +3,13 @@ Every task contains a separate branch and screenshots of completed task.
 For this purpose I'm gonna use Flask framework, which requoires python to be installed with a few libraries
 listed in the pyproject.toml file.
 
+
+# Task 2
+
+For these purposes we're gonna use flask-simple-captcha library
+
+- [ ] implement captcha auth during registrations
+
 # Installation
 
 The app can be launched manually and through docker container.
