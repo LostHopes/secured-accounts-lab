@@ -3,10 +3,15 @@
 
 {% block css %}
     {{ super() }}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/profile.css') }}">
 {% endblock %}
 
 {% block content %}
 
     {% include "_flashes.html"%}
+
+    <form action="{{ url_for('logout') }}" method="post" class="logout-form">
+        <input type="submit" value="Logout">
+    </form>
 
 {% endblock %}
