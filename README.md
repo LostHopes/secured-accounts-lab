@@ -4,11 +4,11 @@ For this purpose I'm gonna use Flask framework, which requoires python to be ins
 listed in the pyproject.toml file.
 
 
-# Task 2
+# Task 3
 
-For these purposes we're gonna use flask-simple-captcha library
+Activate account with email. For these purposes we're gonna use flask-mail library
 
-- [x] implement captcha auth during registrations
+- [ ] verify registration with email
 
 # Installation
 
@@ -67,3 +67,4 @@ sudo docker run -p 5000:5000 secure-accounts
 3. [Colors for the app](https://coolors.co/palette/f94144-f3722c-f8961e-f9c74f-90be6d-43aa8b-577590)
 4. [WTForms official docs](https://wtforms.readthedocs.io/en/)
 5. [Flask Simple Captcha docs](https://pypi.org/project/flask-simple-captcha/)
+6. [Flask Mail docs](https://flask-mail.readthedocs.io)
