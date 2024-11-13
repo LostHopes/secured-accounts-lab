@@ -11,7 +11,7 @@
     <div class="auth-block">
         {% include "_flashes.html"%}
         <form method="post" action="{{ url_for('process_register') }}">
-            {{ fields.register_form(form) }}
+            {{ fields.register_form(form, captcha) }}
         </form>
     </div>
 

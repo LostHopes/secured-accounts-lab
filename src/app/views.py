@@ -2,7 +2,7 @@ from flask import render_template, redirect, url_for, request, flash, abort
 from flask_login import login_required, login_user, logout_user
 from sqlalchemy.exc import IntegrityError
 from flask_bcrypt import check_password_hash, generate_password_hash
-from app import app, db
+from app import app, db, captcha
 from app.models import User
 from app.forms import LoginForm, RegisterForm
 
@@ -27,13 +27,14 @@ def login():
 @app.get("/register/")
 def register():
     title: str = "Register"
+    simple_captcha = captcha.create()
 
     form = RegisterForm()
     if form.validate_on_submit():
 
         return redirect(url_for("login"))
 
-    return render_template("register.html", title=title, form=form)
+    return render_template("register.html", title=title, form=form, captcha=simple_captcha)
 
 
 @app.get("/profile/")
@@ -73,6 +74,13 @@ def process_register():
         password = form.password.data
         confirm_password = form.confirm_password.data
         terms = form.terms.data
+        
+        captcha_hash = request.form.get("captcha-hash")
+        captcha_text = request.form.get("captcha-text")
+
+        if captcha.verify(captcha_text, captcha_hash) is False:
+            flash("Couldn't verify the captcha", "error")
+            return redirect(url_for("register"))
 
         if form.validate() is False:
             flash("Failed to validate data", "error")

@@ -47,3 +47,14 @@
   font-size: large;
   font-weight: bold;
 }
+
+.captcha{
+  display: flex;
+  flex-direction: column;
+}
+
+.simple-captcha-text{
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+  border-radius: 0.5vh;
+}

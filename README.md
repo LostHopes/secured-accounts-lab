@@ -8,15 +8,7 @@ listed in the pyproject.toml file.
 
 For these purposes we're gonna use flask-simple-captcha library
 
-- [ ] implement captcha auth during registrations
-
-Requirements for the password:
-- [x] length >= 8 symbols
-- [x] lower and upper case letters
-- [x] must contain at least one number
-- [x] must containt at least one symbol
-- [x] if users doesn't exist in the database, send a info flash and redirect him/her to the register page
-- [x] compare hashes, not passwords
+- [x] implement captcha auth during registrations
 
 # Installation
 
@@ -74,3 +66,4 @@ sudo docker run -p 5000:5000 secure-accounts
 2. [Bcrypt - Wiki](https://en.wikipedia.org/wiki/Bcrypt)
 3. [Colors for the app](https://coolors.co/palette/f94144-f3722c-f8961e-f9c74f-90be6d-43aa8b-577590)
 4. [WTForms official docs](https://wtforms.readthedocs.io/en/)
+5. [Flask Simple Captcha docs](https://pypi.org/project/flask-simple-captcha/)

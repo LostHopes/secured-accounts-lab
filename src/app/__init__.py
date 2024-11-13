@@ -2,6 +2,7 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
 from flask_login import LoginManager
+from flask_simple_captcha import CAPTCHA, DEFAULT_CONFIG
 from app import config
 
 app = Flask(__name__)
@@ -11,6 +12,7 @@ login_manager = LoginManager()
 login_manager.login_view = "login"
 login_manager.login_message = "You should login before accessing this page"
 login_manager.login_message_category = "info"
+captcha = CAPTCHA(DEFAULT_CONFIG)
 
 def create_app(config_obj: object=config.DevConfig):
 
@@ -22,6 +24,7 @@ def create_app(config_obj: object=config.DevConfig):
         db.init_app(app)
         bcrypt.init_app(app)
         login_manager.init_app(app)
+        captcha.init_app(app)
         db.create_all(bind_key=None)
 
     return app
