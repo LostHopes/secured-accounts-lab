@@ -1,8 +1,9 @@
 from flask import render_template, redirect, url_for, request, flash, abort
-from flask_login import login_required, login_user, logout_user
+from flask_login import login_required, login_user, logout_user, current_user
 from sqlalchemy.exc import IntegrityError
 from flask_bcrypt import check_password_hash, generate_password_hash
-from app import app, db, captcha
+from flask_mail import Message
+from app import app, db, captcha, mail
 from app.models import User
 from app.forms import LoginForm, RegisterForm
 
@@ -16,6 +17,10 @@ def index():
 @app.get("/login/")
 def login():
     title: str = "Login"
+
+    if current_user.is_authenticated:
+        flash("You are already logged in", "flash-info")
+        return redirect(url_for("profile"))
 
     form = LoginForm()
     if form.validate_on_submit():
@@ -31,7 +36,6 @@ def register():
 
     form = RegisterForm()
     if form.validate_on_submit():
-
         return redirect(url_for("login"))
 
     return render_template("register.html", title=title, form=form, captcha=simple_captcha)
@@ -46,6 +50,7 @@ def profile():
 
 @app.post("/login/")
 def process_login():
+
     form = LoginForm(request.form)
 
     email = form.email.data
@@ -53,7 +58,11 @@ def process_login():
 
     user = db.session.query(User).filter_by(email=email).first()
 
-    if form.validate() and check_password_hash(user.password, password) is False:
+
+    if not form.validate() and \
+        check_password_hash(user.password, password) is False \
+            or not user:
+
         flash("Invalid password or the user didn't exist", "flash-info")
         return redirect(url_for("login"))
 
@@ -92,6 +101,15 @@ def process_register():
             flash("Passwords aren't the same", "flash-info")
             return redirect(url_for("register"))
 
+        msg = Message(
+            subject=f"Confirm registration for {username}",
+            recipients=[email],
+            body=None
+        )
+
+        mail.send(msg)
+        flash("The mail with confirmation was sent to your email", "flash-info")
+
         user = User(username=username, email=email, password=password_hash)
 
         db.session.add(user)
@@ -113,3 +131,9 @@ def logout():
     logout_user()
     flash("You have been logged out", "flash-info")
     return redirect(url_for("index"))
+
+
+@app.post("/confirm/")
+def confirm_account():
+    flash("Your account has been verified", "flash-success")
+    return redirect(url_for("login"))
