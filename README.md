@@ -60,6 +60,18 @@ Run a container
 sudo docker run -p 5000:5000 secure-accounts
 ```
 
+# Configuration
+
+Create *.env* file in src/app folder if you haven't already.
+
+Example:
+```
+SECRET_KEY="" # for csrf protection
+SQLALCHEMY_DATABASE_URI = "" # link to the database
+MAIL_DEFAULT_SENDER = "" # default sender email
+MAIL_PASSWORD = "" # password to this email
+```
+
 # References and additional information
 
 1. [Docker official documentation - Docker](https://docs.docker.com)
@@ -68,3 +80,4 @@ sudo docker run -p 5000:5000 secure-accounts
 4. [WTForms official docs](https://wtforms.readthedocs.io/en/)
 5. [Flask Simple Captcha docs](https://pypi.org/project/flask-simple-captcha/)
 6. [Flask Mail docs](https://flask-mail.readthedocs.io)
+7. [How to send an e-mail with Flask and Flask-Mail? - Medium](https://medium.com/@lewis.devs/how-to-send-an-e-mail-with-flask-a13e751a5cab)
