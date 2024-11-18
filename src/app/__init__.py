@@ -5,6 +5,7 @@ from flask_bcrypt import Bcrypt
 from flask_login import LoginManager
 from flask_simple_captcha import CAPTCHA, DEFAULT_CONFIG
 from flask_mail import Mail
+from flask_security import Security
 from app import config
 
 app = Flask(__name__)
@@ -17,6 +18,8 @@ login_manager.login_message = "You should login before accessing this page"
 login_manager.login_message_category = "info"
 captcha = CAPTCHA(DEFAULT_CONFIG)
 mail = Mail()
+security = Security()
+
 
 def create_app(config_obj: object=config.DevConfig):
 
@@ -31,6 +34,7 @@ def create_app(config_obj: object=config.DevConfig):
         login_manager.init_app(app)
         captcha.init_app(app)
         mail.init_app(app)
+        security.init_app(app, db)
 
         db.create_all(bind_key=None)
 

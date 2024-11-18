@@ -18,6 +18,7 @@ flask-bcrypt = "^1.0.1"
 flask = "^3.1.0"
 flask-simple-captcha = "^5.5.5"
 flask-mail = "^0.10.0"
+flask-security = "^5.5.2"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.3.3"

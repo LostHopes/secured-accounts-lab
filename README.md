@@ -4,11 +4,12 @@ For this purpose I'm gonna use Flask framework, which requoires python to be ins
 listed in the pyproject.toml file.
 
 
-# Task 3
+# Task 5
 
-Activate account with email. For these purposes we're gonna use flask-mail library
+Enable 2FA in profile page (disable by default).
+For these purposes I'm gonna use flask-security library. (see [References](#references-and-additional-information)
 
-- [ ] verify registration with email
+- [ ] 2FA
 
 # Installation
 
@@ -81,3 +82,4 @@ MAIL_PASSWORD = "" # password to this email
 5. [Flask Simple Captcha docs](https://pypi.org/project/flask-simple-captcha/)
 6. [Flask Mail docs](https://flask-mail.readthedocs.io)
 7. [How to send an e-mail with Flask and Flask-Mail? - Medium](https://medium.com/@lewis.devs/how-to-send-an-e-mail-with-flask-a13e751a5cab)
+8. [Flask-security docs](https://flask-security-too.readthedocs.io)
