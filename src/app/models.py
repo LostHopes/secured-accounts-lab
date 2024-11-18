@@ -1,4 +1,5 @@
 from flask_login import UserMixin
+from datetime import datetime
 from app import db, login_manager
 
 
@@ -13,3 +14,5 @@ class User(db.Model, UserMixin):
     username = db.Column(db.String, unique=True)
     email = db.Column(db.String, unique=True)
     password = db.Column(db.String)
+    is_confirmed = db.Column(db.Boolean, default=False)
+    created_at = db.Column(db.DateTime, default=datetime.now().replace(second=0, microsecond=0))

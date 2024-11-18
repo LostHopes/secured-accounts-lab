@@ -1,5 +1,6 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
+from flask_migrate import Migrate
 from flask_bcrypt import Bcrypt
 from flask_login import LoginManager
 from flask_simple_captcha import CAPTCHA, DEFAULT_CONFIG
@@ -8,6 +9,7 @@ from app import config
 
 app = Flask(__name__)
 db = SQLAlchemy()
+migrate = Migrate()
 bcrypt = Bcrypt()
 login_manager = LoginManager()
 login_manager.login_view = "login"
@@ -24,6 +26,7 @@ def create_app(config_obj: object=config.DevConfig):
         from app import errors
         from app.models import User
         db.init_app(app)
+        migrate.init_app(app, db)
         bcrypt.init_app(app)
         login_manager.init_app(app)
         captcha.init_app(app)
